@@ -90,9 +90,9 @@ std::string to_stringmetohd(int value) {
 std ::string SetRootLoc(std ::string path,std ::string loac_value,std ::string root)
 {
     std ::string result;
-    std :: cout << "==> path:" << path << std ::endl;
-	std :: cout << "==>locationpath:" << loac_value << std ::endl;
-	std :: cout << "==>root:" << root << std ::endl;
+    // std :: cout << "==> path:" << path << std ::endl;
+	// std :: cout << "==>locationpath:" << loac_value << std ::endl;
+	// std :: cout << "==>root:" << root << std ::endl;
     size_t it =path.find(loac_value);
     
     if(it != std ::string::npos )
@@ -287,7 +287,7 @@ int Http_req::StautRe(std::string request)
     {
          
     }
-      //debugFunction();
+      debugFunction();
 
     res = 1;
     return (res);

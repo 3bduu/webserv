@@ -20,7 +20,7 @@ public:
     };
     
 
-private:
+public:
    /// this the start line 
     std::string req;
     std::string _target;
