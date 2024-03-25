@@ -110,6 +110,7 @@ void Parser::_index( Location& l )
     /**
      * could have multiple index files
     */
+    expect("index") ;
     while ( *curr != ";" )
     {
         l.setIndex(*curr) ;
@@ -172,6 +173,22 @@ void Parser::_cgi( Location& l )
     std::cout << __PRETTY_FUNCTION__ << std::endl ;
     expect("cgi") ;
     l.setCgi(*curr) ;
+    next() ;
+    expect(";") ;
+}
+
+void Parser::_upload_path( Location& l )
+{
+    expect("upload_path") ;
+    l.setUploadPath(*curr) ;
+    next() ;
+    expect(";") ;
+}
+
+void Parser::_upload( Location& l )
+{
+    expect("upload") ;
+    l.setUpload(*curr) ;
     next() ;
     expect(";") ;
 }
@@ -256,6 +273,10 @@ Location Parser::createLocation( void )
             _cgi(l) ;
         else if ( *curr == "return")
             _return(l) ;
+        else if ( *curr == "upload")
+            _upload(l) ;
+        else if ( *curr == "upload_path")
+            _upload_path(l) ;
         else 
             throw std::runtime_error("Unexpected token: in location " + *curr) ;
     }
